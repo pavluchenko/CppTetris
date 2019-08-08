@@ -10,9 +10,9 @@ class pieces
 {
 public:
 
-    int GetBlockType		(int pPiece, int pRotation, int pX, int pY);
-    int GetXInitialPosition (int pPiece, int pRotation);
-    int GetYInitialPosition (int pPiece, int pRotation);
+    int getBlockType		(int pPiece, int pRotation, int pX, int pY);
+    int getXInitialPosition (int pPiece, int pRotation);
+    int getYInitialPosition (int pPiece, int pRotation);
 };
 
 
