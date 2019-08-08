@@ -6,7 +6,7 @@
 #define CPPTETRIS_PIECES_H
 
 
-class Pieces
+class pieces
 {
 public:
 

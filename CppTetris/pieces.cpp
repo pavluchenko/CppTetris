@@ -2,7 +2,7 @@
 // Created by Helga on 2019-08-08.
 //
 
-#include "Pieces.h"
+#include "pieces.h"
 
 // Pieces definition
 char mPieces [7 /*kind */ ][4 /* rotation */ ][5 /* horizontal blocks */ ][5 /* vertical blocks */ ] =
@@ -296,7 +296,7 @@ Parameters:
 >> pY:			Vertical position in blocks
 ======================================
 */
-int Pieces::GetBlockType (int pPiece, int pRotation, int pX, int pY)
+int pieces::GetBlockType (int pPiece, int pRotation, int pX, int pY)
 {
     return mPieces [pPiece][pRotation][pX][pY];
 }
@@ -313,7 +313,7 @@ Parameters:
 >> pRotation:	1 of the 4 possible rotations
 ======================================
 */
-int Pieces::GetXInitialPosition (int pPiece, int pRotation)
+int pieces::GetXInitialPosition (int pPiece, int pRotation)
 {
     return mPiecesInitialPosition [pPiece][pRotation][0];
 }
@@ -330,7 +330,7 @@ Parameters:
 >> pRotation:	1 of the 4 possible rotations
 ======================================
 */
-int Pieces::GetYInitialPosition (int pPiece, int pRotation)
+int pieces::GetYInitialPosition (int pPiece, int pRotation)
 {
     return mPiecesInitialPosition [pPiece][pRotation][1];
 }
