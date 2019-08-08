@@ -5,7 +5,7 @@
 #ifndef CPPTETRIS_BOARD_H
 #define CPPTETRIS_BOARD_H
 
-#include "piecespieces.h"
+#include "pieces.h"
 
 #define BOARD_LINE_WIDTH 6			// Width of each of the two lines that delimit the board
 #define BLOCK_SIZE 16				// Width and Height of each block of a piece
@@ -20,7 +20,7 @@ class board {
 
 public:
 
-    board						(piecespieces *pPieces, int pScreenHeight);
+    board						(pieces *pPieces, int pScreenHeight);
 
     int GetXPosInPixels			(int pPos);
     int GetYPosInPixels			(int pPos);
@@ -34,7 +34,7 @@ private:
 
     enum { POS_FREE, POS_FILLED };			// POS_FREE = free position of the board; POS_FILLED = filled position of the board
     int mBoard [BOARD_WIDTH][BOARD_HEIGHT];	// Board that contains the pieces
-    piecespieces *mPieces;
+    pieces *mPieces;
     int mScreenHeight;
 
     void InitBoard();
