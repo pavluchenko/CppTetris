@@ -4,30 +4,25 @@
 
 #include "board.h"
 
-/*
-==================
-Init
-==================
-*/
-//board::board (pieces *pPieces, int pScreenHeight)
-//{
-//    // Get the screen height
-//    mScreenHeight = pScreenHeight;
-//
-//    // Get the pointer to the pieces class
-//    mPieces = pPieces;
-//
-//    //Init the board blocks with free positions
-//    InitBoard();
-//}
-//
+board::board (pieces *pPieces, int pScreenHeight)
+{
+    // Get the screen height
+    mScreenHeight = pScreenHeight;
+
+    // Get the pointer to the pieces class
+    mPieces = pPieces;
+
+    //Init the board blocks with free positions
+    initBoard();
+}
+
 
 /*
 ======================================
 Init the board blocks with free positions
 ======================================
 */
-void board::InitBoard()
+void board::initBoard()
 {
     for (int i = 0; i < BOARD_WIDTH; i++)
         for (int j = 0; j < BOARD_HEIGHT; j++)
@@ -46,7 +41,7 @@ Parameters:
 >> pRotation:	1 of the 4 possible rotations
 ======================================
 */
-void board::StorePiece (int pX, int pY, int pPiece, int pRotation)
+void board::storePiece (int pX, int pY, int pPiece, int pRotation)
 {
     // Store each block of the piece into the board
     for (int i1 = pX, i2 = 0; i1 < pX + PIECE_BLOCKS; i1++, i2++)
@@ -68,7 +63,7 @@ Check if the game is over becase a piece have achived the upper position
 Returns true or false
 ======================================
 */
-bool board::IsGameOver()
+bool board::isGameOver()
 {
     //If the first line has blocks, then, game over
     for (int i = 0; i < BOARD_WIDTH; i++)
@@ -89,7 +84,7 @@ Parameters:
 >> pY:		Vertical position in blocks of the line to delete
 ======================================
 */
-void board::DeleteLine (int pY)
+void board::deleteLine (int pY)
 {
     // Moves all the upper lines one row down
     for (int j = pY; j > 0; j--)
@@ -107,7 +102,7 @@ void board::DeleteLine (int pY)
 Delete all the lines that should be removed
 ======================================
 */
-void board::DeletePossibleLines ()
+void board::deletePossibleLines ()
 {
     for (int j = 0; j < BOARD_HEIGHT; j++)
     {
@@ -118,7 +113,7 @@ void board::DeletePossibleLines ()
             i++;
         }
 
-        if (i == BOARD_WIDTH) DeleteLine (j);
+        if (i == BOARD_WIDTH) deleteLine (j);
     }
 }
 
@@ -133,7 +128,7 @@ Parameters:
 >> pY:		Vertical position in blocks
 ======================================
 */
-bool board::IsFreeBlock (int pX, int pY)
+bool board::isFreeBlock (int pX, int pY)
 {
     if (mBoard [pX][pY] == POS_FREE) return true; else return false;
 }
@@ -148,7 +143,7 @@ Parameters:
 >> pPos:	Horizontal position of the block in the board
 ======================================
 */
-int board::GetXPosInPixels (int pPos)
+int board::getXPosInPixels (int pPos)
 {
     return  ( ( BOARD_POSITION - (BLOCK_SIZE * (BOARD_WIDTH / 2)) ) + (pPos * BLOCK_SIZE) );
 }
@@ -163,7 +158,7 @@ Parameters:
 >> pPos:	Horizontal position of the block in the board
 ======================================
 */
-int board::GetYPosInPixels (int pPos)
+int board::getYPosInPixels (int pPos)
 {
     return ( (mScreenHeight - (BLOCK_SIZE * BOARD_HEIGHT)) + (pPos * BLOCK_SIZE) );
 }
@@ -182,7 +177,7 @@ Parameters:
 >> pRotation:	1 of the 4 possible rotations
 ======================================
 */
-bool board::IsPossibleMovement (int pX, int pY, int pPiece, int pRotation)
+bool board::isPossibleMovement (int pX, int pY, int pPiece, int pRotation)
 {
     // Checks collision with pieces already stored in the board or the board limits
     // This is just to check the 5x5 blocks of a piece with the appropiate area in the board
@@ -203,7 +198,7 @@ bool board::IsPossibleMovement (int pX, int pY, int pPiece, int pRotation)
             if (j1 >= 0)
             {
                 if ((mPieces->getBlockType (pPiece, pRotation, j2, i2) != 0) &&
-                    (!IsFreeBlock (i1, j1))	)
+                    (!isFreeBlock (i1, j1))	)
                     return false;
             }
         }

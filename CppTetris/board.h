@@ -22,13 +22,13 @@ public:
 
     board						(pieces *pPieces, int pScreenHeight);
 
-    int GetXPosInPixels			(int pPos);
-    int GetYPosInPixels			(int pPos);
-    bool IsFreeBlock			(int pX, int pY);
-    bool IsPossibleMovement		(int pX, int pY, int pPiece, int pRotation);
-    void StorePiece				(int pX, int pY, int pPiece, int pRotation);
-    void DeletePossibleLines	();
-    bool IsGameOver				();
+    int getXPosInPixels			(int pPos);
+    int getYPosInPixels			(int pPos);
+    bool isFreeBlock			(int pX, int pY);
+    bool isPossibleMovement		(int pX, int pY, int pPiece, int pRotation);
+    void storePiece				(int pX, int pY, int pPiece, int pRotation);
+    void deletePossibleLines	();
+    bool isGameOver				();
 
 private:
 
@@ -37,8 +37,8 @@ private:
     pieces *mPieces;
     int mScreenHeight;
 
-    void InitBoard();
-    void DeleteLine (int pY);
+    void initBoard();
+    void deleteLine (int pY);
 
 };
 
