@@ -16,11 +16,11 @@
 #define MIN_HORIZONTAL_MARGIN 20	// Minimum horizontal margin for the board limit
 #define PIECE_BLOCKS 5				// Number of horizontal and vertical blocks of a matrix piece
 
-class board {
+class Board {
 
 public:
 
-    board						(pieces *pPieces, int pScreenHeight);
+    Board						(Pieces *pPieces, int pScreenHeight);
 
     int getXPosInPixels			(int pPos);
     int getYPosInPixels			(int pPos);
@@ -34,7 +34,7 @@ private:
 
     enum { POS_FREE, POS_FILLED };			// POS_FREE = free position of the board; POS_FILLED = filled position of the board
     int mBoard [BOARD_WIDTH][BOARD_HEIGHT];	// Board that contains the pieces
-    pieces *mPieces;
+    Pieces *mPieces;
     int mScreenHeight;
 
     void initBoard();

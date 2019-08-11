@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        io.cpp \
         main.cpp \
         board.cpp \
         game.cpp \
@@ -34,6 +35,7 @@ SOURCES += \
 HEADERS += \
         board.h \
         game.h \
+        io.h \
         pieces.h \
         window.h
 

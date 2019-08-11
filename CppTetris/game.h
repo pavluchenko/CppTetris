@@ -10,9 +10,9 @@
 
 #define WAIT_TIME 700           // Number of milliseconds that the piece remains before going 1 block down */
 
-class game {
+class Game {
 public:
-    game (board *pBoard, pieces *pPieces, int pScreenHeight);
+    Game (Board *pBoard, Pieces *pPieces, int pScreenHeight);
     
     void drawScene ();
     void createNewPiece ();
