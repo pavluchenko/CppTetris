@@ -6,6 +6,9 @@
 #define CPPTETRIS_BOARD_H
 
 #include "pieces.h"
+#include <QBasicTimer>
+#include <QFrame>
+#include <QPointer>
 
 #define BOARD_LINE_WIDTH 6			// Width of each of the two lines that delimit the board
 #define BLOCK_SIZE 16				// Width and Height of each block of a piece
@@ -16,11 +19,12 @@
 #define MIN_HORIZONTAL_MARGIN 20	// Minimum horizontal margin for the board limit
 #define PIECE_BLOCKS 5				// Number of horizontal and vertical blocks of a matrix piece
 
-class Board {
+class Board : public QFrame {
 
 public:
 
     Board						(Pieces *pPieces, int pScreenHeight);
+    Board                       (QWidget *parent = nullptr);
 
     int getXPosInPixels			(int pPos);
     int getYPosInPixels			(int pPos);
