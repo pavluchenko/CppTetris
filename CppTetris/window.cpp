@@ -3,12 +3,10 @@
 
 Window::Window(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
-{
+    ui(new Ui::MainWindow) {
     ui->setupUi(this);
 }
 
-Window::~Window()
-{
+Window::~Window() {
     delete ui;
 }
